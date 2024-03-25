@@ -1,0 +1,42 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Pet {
+  id: ID!
+  name: String!
+  type: String!
+  ownerId: ID!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  pets: [Pet!]!
+}
+
+type Query {
+  users: [User!]!
+  user(id: Float!): User
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  id: Int!
+}
+
+type Subscription {
+  userUpdated(id: Float!): User!
+}
